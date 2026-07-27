@@ -1,0 +1,58 @@
+{
+    "reload_style_on_change": true,
+    "position": "bottom",
+    "layer": "top",
+    "margin-bottom": 10,
+    "width": 1250,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["wlr/taskbar"],
+    "modules-right": ["pulseaudio", "battery", "clock","tray"],
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent-workspaces": {
+            "*": 5 // 5 workspaces by default on every monitor
+        }
+    },
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "format-alt": "{:%a, %d. %b  %I:%M %p}"
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% ",
+        "format-muted": "",
+        "format-icons": {
+            "alsa_output.pci-0000_00_1f.3.analog-stereo": "",
+            "alsa_output.pci-0000_00_1f.3.analog-stereo-muted": "",
+            "headphone": "",
+            "hands-free": "󰂑",
+            "headset": "󰂑",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+	    },
+	    "scroll-step": 1,
+	    "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10,
+        "icons": {
+            "networkmanager": "networkmanager",
+            "blueman": "bluetooth"
+        }
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 21,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    }
+}

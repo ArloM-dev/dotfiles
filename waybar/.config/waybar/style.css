@@ -1,0 +1,131 @@
+@import "/home/arlo/.cache/iris/colors-waybar.css";
+
+* {
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    font-family: "SF Pro Display", "JetBrainsMono Nerd Font Propo";
+    font-size: 14px;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.modules-right {
+    background: @bg;
+    border-radius: 20px;
+    border: 1px solid @accent;
+}
+
+window#waybar {
+    background: transparent;
+    color: white;
+}
+
+tooltip {
+  background: alpha(@bg,0.5);
+  border: 1px solid alpha(@accent,0.5);
+  border-radius: 5px;
+}
+tooltip label {
+  color: @fg;
+}
+
+#workspaces button {
+    transition: all 150ms ease-in-out;
+    padding: 0 5px;
+    margin: 0 2px;
+    background: @bg;
+    border-radius: 11px;
+    border: 1px solid alpha(@accent, 1);
+    color: @fg;
+}
+
+#workspaces button.active {
+    min-width: 50px;
+    background: @accent;
+    color: @bg;
+    border: none;
+    border-radius: 20px;
+}
+
+#tray {
+    padding: 5px;
+    margin: 0 2px;
+}
+
+#tray menu {
+    background: @bg;
+    border-radius: 20px;
+    border: 2px solid @fg;
+    padding: 10px;
+    box-shadow: none;
+    -gtk-key-bindings: none;
+}
+
+#tray menu * {
+    border: none;
+}
+
+#tray menu menuitem {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#taskbar {
+    background: @bg;
+    padding: 5px;
+    border-radius: 50px;
+    border: 1px solid @accent;
+}
+
+#taskbar.empty {
+    background: none;
+    border: none;
+}
+
+#taskbar button {
+    padding: 0 5px;
+    margin: 0 0px;
+}
+
+#taskbar button:hover {
+    background: none;
+}
+
+#clock {
+    background-color: transparent;
+    color: @fg;
+    padding: 0 5px;
+    margin: 0 2px;
+}
+
+#pulseaudio {
+    background-color: transparent;
+    color: @fg;
+    padding: 0 5px;
+    margin: 0 2px;
+}
+
+#battery {
+    background-color: transparent;
+    color: @fg;
+    padding: 0 5px;
+    margin: 0 2px;
+}
+
+#battery.charging {
+    background-color: transparent;
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    background: transparent;
+    color: @red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
