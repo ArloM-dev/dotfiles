@@ -49,7 +49,8 @@ hl.window_rule({
 })
 hl.window_rule({
   match = { float = true },
-  size = { 800, 600 }
+  size = { 800, 600 },
+  center = true,
 })
 
 hl.config({
