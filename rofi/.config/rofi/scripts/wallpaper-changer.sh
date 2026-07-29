@@ -88,3 +88,4 @@ awww img "$wall" --transition-type random
 iris "$wall" --dark 1
 hyprctl reload
 kill -SIGUSR1 $(pgrep kitty)
+echo "\$wall = $wall" > ~/.cache/iris/wallpapers.conf
