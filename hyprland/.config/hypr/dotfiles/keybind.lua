@@ -10,18 +10,30 @@ local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + V", hl.dsp.window.resize({x=960,y=540,relative=false,window="active"}))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+
+local floatx = 960 -- default x length of floating windows
+local floaty = 540 -- default y length of floating windows
+hl.bind(mainMod .. " + V", function()
+    hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+    hl.dispatch(hl.dsp.window.resize({x=floatx,y=floaty,relative=false,window="active"}))
+    hl.dispatch(hl.dsp.window.center())
+end)
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+
+-- Change window size with mainMod + alt + arrow keys
+hl.bind(mainMod .. " + ALT + left", hl.dsp.window.resize({x=-40,y=0,relative=true,window="active"}))
+hl.bind(mainMod .. " + ALT + right", hl.dsp.window.resize({x=40,y=0,relative=true,window="active"}))
+hl.bind(mainMod .. " + ALT + up", hl.dsp.window.resize({x=0,y=-40,relative=true,window="active"}))
+hl.bind(mainMod .. " + ALT + down", hl.dsp.window.resize({x=0,y=40,relative=true,window="active"}))
 
 -- Rearrange (Swap) windows using Shift + Arrow keys
 hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ direction = "left" }))
