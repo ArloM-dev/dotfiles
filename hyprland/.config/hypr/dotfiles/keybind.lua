@@ -14,6 +14,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
 local floatx = 960 -- default x length of floating windows
 local floaty = 540 -- default y length of floating windows
