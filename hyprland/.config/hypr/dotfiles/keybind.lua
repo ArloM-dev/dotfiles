@@ -16,8 +16,8 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 
-local floatx = 960 -- default x length of floating windows
-local floaty = 540 -- default y length of floating windows
+local floatx = 800 -- default x length of floating windows
+local floaty = 500 -- default y length of floating windows
 hl.bind(mainMod .. " + V", function()
     hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
     hl.dispatch(hl.dsp.window.resize({x=floatx,y=floaty,relative=false,window="active"}))
