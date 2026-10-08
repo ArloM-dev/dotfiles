@@ -1,7 +1,7 @@
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
-
+local utils = require("dotfiles.utils")
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(terminal))
@@ -15,13 +15,10 @@ hl.bind(mainMod .. " + W", hl.dsp.exec_cmd(wallpaper))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
 
-local floatx = 800 -- default x length of floating windows
-local floaty = 500 -- default y length of floating windows
 hl.bind(mainMod .. " + V", function()
-    hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
-    hl.dispatch(hl.dsp.window.resize({x=floatx,y=floaty,relative=false,window="active"}))
-    hl.dispatch(hl.dsp.window.center())
+    utils.floater(hl)
 end)
 
 -- Move focus with mainMod + arrow keys
@@ -52,7 +49,7 @@ end
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + ALT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

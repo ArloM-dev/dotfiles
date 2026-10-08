@@ -19,12 +19,12 @@ hl.config({
         },
     },
 })
-
-hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
-})
+local utils = require("dotfiles.utils")
+hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({ fingers = 3, direction = "down", action = function()
+    utils.floater(hl)
+end })
+hl.gesture({ fingers = 3, direction = "up", scale = 1.5, action = "fullscreen" })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
