@@ -16,6 +16,7 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
+hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("shutdown now"))
 
 hl.bind(mainMod .. " + V", function()
     utils.floater(hl)
